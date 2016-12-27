@@ -1,0 +1,1 @@
+This is file to count all the vowels in text of txt file aeiou

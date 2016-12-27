@@ -1,0 +1,70 @@
+
+// Implementation of BankATMException
+
+public class BankATMException extends Exception {
+	public BankATMException(String mymsg)
+    {
+        super(mymsg);
+    }
+
+}
+
+===============================================================================================================
+// Implementation of BankATM class
+import java.util.Scanner;
+
+public class BankATM {
+
+	int atmID = 1234;
+	String bankName = "ABCD";
+	String location = "XYZ";
+	double balance = 20000;
+	
+
+	 public void deposit(double amount) {
+	  this.balance = amount;
+	 
+	 }
+
+	 public   void  withdraw(double amount) throws Exception{
+	 
+	  
+	   balance =balance- amount;
+	   
+	 }
+	 public void displayMymsg() throws BankATMException
+	    { 
+	    	
+	    	if (balance < 10000)
+	    	{
+	    		throw new BankATMException("Withdrawl not  allowed");
+	    	}
+	    	
+	    	
+	    	
+	    }
+	 public static void main(String args[]) throws Exception
+	    {
+		 BankATM es = new BankATM();
+		 System.out.println("Enter withdrawl amount " );
+	    	Scanner s=new Scanner(System.in);
+	    	String amt = s.nextLine();
+	    	double amount = Double.parseDouble(amt);
+	    	
+		   es.withdraw(amount);
+		   es.displayMymsg();
+		    
+		    	
+	    	 
+	      
+	    }
+
+
+}
+
+Output :
+Enter withdrawl amount 1
+20000
+Exception in thread "main" BankATMException: Withdrawl not  allowed
+	at BankATM.displayMymsg(BankATM.java:27)
+	at BankATM.main(BankATM.java:42)

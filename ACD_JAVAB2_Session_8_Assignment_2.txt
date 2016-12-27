@@ -1,0 +1,49 @@
+/////////////////////////////////////////////////////////
+// Negative Age Exception example
+/////////////////////////////////////////////////////////
+public class NegativeAgeException extends Exception{
+	public NegativeAgeException(String mymsg)
+    {
+        super(mymsg);
+    }
+
+}
+
+/////////////////////////////////////////////////////////////
+import java.util.Scanner;
+
+public class ExceptionSample
+{
+    public static void main(String args[]) throws Exception
+    {
+        ExceptionSample es = new ExceptionSample();
+        es.displayMymsg();
+    }
+    public void displayMymsg() throws NegativeAgeException
+    { 
+    	System.out.println("Enter Age" );
+    	Scanner s=new Scanner(System.in);
+    	String sage = s.nextLine();
+    	int age = Integer.parseInt(sage);
+    	if (age < 0)
+    	{
+    		throw new NegativeAgeException("Age Cannot be Negative");
+    	}
+    	else
+    	{
+    		System.out.println("Age is positive " + age );
+    	}
+    	
+    	
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+Output
+
+Enter Age
+-21
+Exception in thread "main" NegativeAgeException: Age Cannot be Negative
+	at ExceptionSample.displayMymsg(ExceptionSample.java:18)
+	at ExceptionSample.main(ExceptionSample.java:8)
+
+

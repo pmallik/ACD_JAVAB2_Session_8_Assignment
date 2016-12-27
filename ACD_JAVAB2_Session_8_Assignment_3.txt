@@ -1,0 +1,30 @@
+import java.io.*;
+class FileCopy
+{
+    public static void main(String args[]) throws IOException
+    {
+    	 FileReader fr=null;
+    	 FileWriter fw=null;
+        try
+        {
+             fr=new FileReader("C:\\Session8\\Source.txt");
+             fw=new FileWriter("C:\\Session8\\Destination.txt");
+            int c=fr.read();
+            while(c!=-1)
+            {
+                fw.write(c);
+                c = fr.read(); // Add this line
+            }
+        }
+        catch(IOException e)
+        {
+            System.out.println(e);
+        }
+        finally
+        {   
+            fr.close();
+            fw.close();
+        }
+
+    }
+}
